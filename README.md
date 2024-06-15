@@ -1,5 +1,5 @@
 # pac-on-rails
-Mini project to automates Policy as Code (PaC) and guardrails to ensure adherence to organizational policies.
+Mini project to automate Policy as Code (PaC) and guardrails to ensure adherence to organizational policies.
 Supports Traditional IaC Infrastructure and Cloud Native.
 
 ## Engine 
@@ -50,11 +50,11 @@ Customise with cloud_specific_configurations.json and policy.json as needed. Els
 ## Run
 
 ### Container Images
-checkov -d *path: dockerfile directory, i.e.: containerfiles/* --external-checks-dir *path to custom checks, i.e.: checks/metadata/images* --framework dockerfile -c CKV_DOCKER_LABEL_CHECK
+checkov -d *containerfile_dir/* --external-checks-dir *checks/metadata/images* --framework dockerfile -c CKV_DOCKER_LABEL_CHECK
 
 
 ### Traditional IaC Infrastructure
-checkov -d *path: dockerfile directory, i.e.: terraform/* --external-checks-dir *path to custom checks, i.e.: checks/metadata/infrastructure* -c CKV_TF_METADATA_CHECK 
+checkov -d *terraform_dir/* --external-checks-dir *checks/metadata/infrastructure* -c CKV_TF_METADATA_CHECK 
 
 
 ## Future Work
