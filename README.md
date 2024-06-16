@@ -1,8 +1,8 @@
 # pac-on-rails
-Mini project to automates Policy as Code (PaC) and guardrails to ensure adherence to organizational policies.
-Supports Traditional IaC Infrastructure and Cloud Native.
+Mini project to automates Policy as Code (PaC) and guardrails to ensure adherence to policies.
+Supports Traditional IaC Infrastructure and Container Images.
 
-## Engine 
+## Policy Engine 
 
 ### Container Images
 
@@ -21,8 +21,10 @@ This repository leverages Checkov to perform checks against infrastructure metad
 #### Cloud-specific Configuration
 
 Each cloud provider has its own configuration section within the engine. Below are details specific to each cloud:
-- Resources to check for metadata pairs (Azure). Modify tag_paths as necessary. Azure uses "tags" for metadata but other providers may use "labels".
-- **Supported Resource Types**: Lists of Cloud/specific resource types where tagging policies are enforced.
+- tag_paths lists the paths to the metadata to be checked (within Terraform). This is quite tigthly coupled, and fragile. This is here, not only, but also because CSPs use different terms to refer to the same thing..
+- *tag_paths*: Easy mode, specify one tag path per CSP. Hardcore, specify multiple (see example in [cloud_specific_configurations.json](./policy/metadata/infrastructure/cloud_specific_configurations.json)).
+- *tag_paths_strict*: If multiple paths are specified, they all will be checked. If tag_paths_strict is True, all of the paths must be present in the resource and must comply with the policy. See the section [metadata policy format](#metadata-policy-format). Copy an example from [policy.json](./policy/metadata/infrastructure/policy.json) into you running directory, as explained in the [run section](#run).
+- *Supported Resource Types*: Lists of Cloud/specific resource types where tagging policies are enforced. See [future work](#future-work).
 
 
 ## Metadata Policy Format (Container Images & Traditional IaC Infrastructure)
