@@ -20,9 +20,8 @@ This repository leverages Checkov to perform checks against infrastructure metad
 
 #### Cloud-specific Configuration
 
-Each cloud provider has its own configuration section within the engine. Below are details specific to each cloud:
-- tag_paths lists the paths to the metadata to be checked (within Terraform). This is quite tigthly coupled, and fragile. This is here, not only, but also because CSPs use different terms to refer to the same thing..
-- *tag_paths*: Easy mode, specify one tag path per CSP. Hardcore, specify multiple (see example in [cloud_specific_configurations.json](./policy/metadata/infrastructure/cloud_specific_configurations.json)).
+Each cloud provider has its own configuration section within the engine. The JSON file lists specific configurations to take, according to the CSP. This is here, not only, but also because CSPs use different terms to refer to the same thing.
+- *tag_paths*: This lists the paths to check for metadata (within Terraform, for the specific provider). Easy mode, specify one tag path per CSP. Medium mode: Specify multiple paths. Hardcore, specify multiple paths and sub.paths (see example in [cloud_specific_configurations.json](./policy/metadata/infrastructure/cloud_specific_configurations.json)). Note specifying te«he capability to specify sub.paths is quite tigthly coupled with a few test examples. Hence it is fragile. Easy mode recommended.
 - *tag_paths_strict*: If multiple paths are specified, they all will be checked. If tag_paths_strict is True, all of the paths must be present in the resource and must comply with the policy. See the section [metadata policy format](#metadata-policy-format). Copy an example from [policy.json](./policy/metadata/infrastructure/policy.json) into you running directory, as explained in the [run section](#run).
 - *Supported Resource Types*: Lists of Cloud/specific resource types where tagging policies are enforced. See [future work](#future-work).
 
