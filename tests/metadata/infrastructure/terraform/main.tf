@@ -16,7 +16,7 @@ variable "region" {
 variable "bucket_name" {
   default = "mybucketname"
 }
-variable "aaaaaah" {
+variable "email" {
   default = "null@gmail.com"
 }
 locals {
@@ -35,16 +35,16 @@ resource "google_compute_instance" "default" {
 
   tags = ["foo", "bar"]
   labels = {
-    maintainer = var.bucket_name,
-    maintainer_specific = var.aaaaaah,
+    maintainer = "hi"
+    maintainer_specific = var.email,
   }
 
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"
       labels = {
-        maintainer = "Hello",
-        maintainer_specific = "not an email"
+        maintainer = "hi"
+        maintainer_specific = "nothh@email.com",
       }
     }
   }
@@ -52,15 +52,15 @@ resource "google_compute_instance" "default" {
   // Local SSD disk
   scratch_disk {
     interface = "NVME"
-  
   }
 
   network_interface {
     network = "default"
     
-
+    
     access_config {
       // Ephemeral public IP
+      
     }
   }
 

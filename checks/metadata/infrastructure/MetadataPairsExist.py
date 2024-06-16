@@ -6,6 +6,50 @@ import os, json, re
 from checkov.terraform.checks.resource.base_resource_check import BaseResourceCheck
 from checkov.common.models.enums import CheckResult, CheckCategories
 
+
+def flatten(l):
+    if not isinstance(l, list):
+        return [l]
+    flat = []
+    for sublist in l:
+        flat.extend(flatten(sublist))
+    return flat
+
+def get_all_by_path_recursive(data, path, delimiter='.'):
+
+    keys = path.split(delimiter)
+
+    if isinstance(data.get(path),dict):
+        return data
+    
+    def recursive_search(data, keys):
+        if not keys:
+            return data
+
+        current_key = keys[0]
+        remaining_keys = keys[1:]
+
+        if isinstance(data, list):
+            results = []
+            for item in data:
+                try:
+                    results.append(recursive_search(item, keys))
+                except (KeyError, IndexError, TypeError):
+                    continue
+            return results
+        elif isinstance(data, dict):
+            if current_key in data:
+                return recursive_search(data[current_key], remaining_keys)
+            else:
+                raise KeyError(f"Key '{current_key}' not found in dictionary")
+        else:
+            raise TypeError(f"Expected list or dict, got {type(data)}")
+
+    try:
+        return recursive_search(data, keys)
+    except (KeyError, IndexError, TypeError):
+        return None
+
 class MetadataPairChecker(BaseResourceCheck):
 
     def __init__(self, metadata_to_check: List[dict], resource_types_to_check: List[dict]) -> None:
@@ -23,7 +67,7 @@ class MetadataPairChecker(BaseResourceCheck):
 
         # CheckCategories are defined in models/enums.py
         categories = (CheckCategories.CONVENTION,)
-        guideline = "This is a custom policy. Powered by Checkov and Python."
+        guideline = "This is a custom policy. Powered by Checkov and Python. Home: ytimyno/pac-on-rails"
 
         super().__init__(name=name, id=id, categories=categories, supported_resources=supported_resources, guideline=guideline)
 
@@ -36,86 +80,127 @@ class MetadataPairChecker(BaseResourceCheck):
                 if resource_type.startswith(key):
                     description = type_to_check_value['description']
                     tag_paths = type_to_check_value['tag_paths']
+                    tag_paths_strict = type_to_check_value['tag_paths_strict']
                     break
 
-        metadata_pairs = {}
+        metadata_keys_path_value = {}
 
-        open("scan_resource_metadata.log", 'w').close()
-
-        with open("scan_resource_metadata.log", '+a') as log_file:
+        with open("scan_resource_metadata_"+self.entity_type+".log", '+a') as log_file:
 
             log_file.write("\nValidating against:\n")
             json.dump(self.metadata_to_check, log_file, indent=4)
 
+            found_tag = False
+            invalid_tag_paths = []
+            valid_paths = []
             for tag_path in tag_paths:
+                tags = False
+                try:
+                    # tags = conf.get(tag_path)
+                    tags = get_all_by_path_recursive(conf, tag_path, '.')
+                    log_file.write("\nINFO: Tags obtained from "+tag_path+" -> "+ str(tags) + ". \n")
+                    tags = flatten(tags)
+                    log_file.write("\nINFO: Reduced List obtained from "+tag_path+" -> "+ str(tags) + ". \n")
 
-                try:   
-                    tags = conf.get(tag_path)
+
                 except:
-                    self.details.append("No METADATA in path "+tag_path+" found. CONF: "+str(conf))  
-                    log_file.write("\nNo METADATA in path "+tag_path+" found. CONF: "+str(conf)+"\n")
+                    self.details.append("WARN: No METADATA in path "+tag_path+" found. CONF: "+str(conf))  
+                    log_file.write("\nWARN: No METADATA in path "+tag_path+" found. CONF: "+str(conf)+"\n")
                 
-                # List of tags [{"Key":"Value"}] - I think
+                # List of tags [{"Key":"Value"}]
                 if tags and isinstance(tags, list):
                     for tag in tags:
                         try:
                             for k,v in tag.items():
-                                metadata_pairs[k] = v
-                                
-                            log_file.write("\nFrom " + str(metadata_pairs) + ". Checking all tag_paths specified.\n")
+
+                                # Accommodating multiple tag paths with the expected keys
+
+                                if k in metadata_keys_path_value.keys():
+                                    metadata_keys_path_value[k][tag_path] = v
+
+                                metadata_keys_path_value[k] = {
+                                    tag_path:v
+                                }
+                                found_tag = True
+                                valid_paths.append(tag_path)
+
+                            # log_file.write("\nGOOD0: From " + str(metadata_keys_path_value) + ". Checking all tag_paths specified.\n")
+                            log_file.write("\nGOOD1: Metadata key/value pair is in the expected format " + str(tag) + ". Used tag_path [" + str(tag_path) + "].\n")
 
                         except:
-                            self.details.append("Something went wrong obtaining the metadata key/value pair from " + str(tag) + ". Checking all tag_paths specified before failing.")  
-                            log_file.write("\nSomething went wrong obtaining the metadata key/value pair: from " + str(tag) + ". Checking all tag_paths specified before failing.\n")
+                            # self.details.append("WARN1: Something went wrong obtaining the metadata key/value pair from " + str(tag) + ". Used tag_path [" + str(tag_path) + "]. Checking all tag_paths specified before failing.")  
+                            log_file.write("\nWARN1: Something went wrong obtaining the metadata key/value pair: from " + str(tag) + ". Used tag_path [" + str(tag_path) + "]. Checking all tag_paths specified before failing.\n")
 
                 else:          
-                    self.details.append("Something went wrong obtaining the metadata key/value pair from " + str(tag_path) + ". Checking all tag_paths specified before failing.")  
-                    log_file.write("\nSomething went wrong obtaining the metadata key/value pair: from " + str(tag_path) + ". Checking all tag_paths specified before failing.\n")  
+                    # self.details.append("WARN2: Unexpected format for metadata in " + str(tags) + ". Checking all tag_paths specified before failing.")  
+                    log_file.write("\nWARN2: Unexpected format for metadata in " + str(tags) + ". Checking all tag_paths specified before failing.\n")
                     continue
+
+                for metadata_to_check_key, metadata_to_check_value in self.metadata_to_check.items():
+                    
+                    if metadata_to_check_key not in metadata_keys_path_value.keys():
+
+                        self.details.append("FAIL: Metadata "+metadata_to_check_key+" is not defined.")
+                        log_file.write("\nFAIL: Metadata "+metadata_to_check_key+" is not defined.\n")              
+                        return CheckResult.FAILED
+                    
+                    metadata_path_value = metadata_keys_path_value[metadata_to_check_key]
+                    log_file.write("\n"+str(metadata_path_value)+"\n") 
+                    
+                    allowed_values_pattern = re.compile(r""+metadata_to_check_value['allowed_values'])
+
+                    for metadata_path, metadata_value in metadata_path_value.items():
+
+                        if allowed_values_pattern.match(metadata_value):
+                            # self.details.append("GOOD: Metadata "+metadata_to_check_key+" on path "+metadata_path+" defined and within allowed values "+metadata_to_check_value['allowed_values']+".")
+                            log_file.write("\nGOOD: Metadata "+metadata_to_check_key+" defined and within allowed values "+metadata_to_check_value['allowed_values']+".\n") 
+
+                        else:
+                            self.details.append("WARN: Metadata "+metadata_to_check_key+" exists in "+metadata_path+" but its value ("+metadata_value+") does not match allowed values "+metadata_to_check_value['allowed_values'] + ".")
+                            log_file.write("\nWARN: Metadata "+metadata_to_check_key+" exists in "+metadata_path+" but its value ("+metadata_value+") does not match allowed values "+metadata_to_check_value['allowed_values'] + ".\n")
+                            invalid_tag_paths.append(metadata_path)
+                            continue
+                    
+                log_file.write("\nSUCCESS: All metadata PASSED validation.\n") 
+
+            if not found_tag:
+                log_file.write("\nFAIL: Could not find metadata in any of the provided paths "+str(tag_paths)+".\n")
+                self.details.append("FAIL: Could not find metadata in any of the provided paths "+str(tag_paths)+".")
+                return CheckResult.FAILED
             
-                for metadata_to_check_key, metadata_to_check in self.metadata_to_check.items():
+            if tag_paths_strict and (len(invalid_tag_paths) > 0 or len(tag_paths)>len(list(dict.fromkeys([item for item in valid_paths if item not in invalid_tag_paths])))):
 
-                    if metadata_to_check_key not in metadata_pairs.keys():
-                        self.details.append("Metadata "+metadata_to_check_key+" is not defined. FAIL")
-                        log_file.write("\nMetadata "+metadata_to_check_key+" is not defined. FAIL\n")              
-                        return CheckResult.FAILED
-                    
-                    allowed_values_pattern = re.compile(r""+metadata_to_check['allowed_values'])
-                    if allowed_values_pattern.match(metadata_pairs[metadata_to_check_key]):
-                        log_file.write("\nMetadata "+metadata_to_check_key+" defined and within allowed values "+metadata_to_check['allowed_values']+".\n") 
-                        continue
-                    else:
-                        self.details.append("Metadata "+metadata_to_check_key+" exists but does not match allowed values "+metadata_to_check['allowed_values'] + ".\nFAIL")
-                        log_file.write("\nMetadata "+metadata_to_check_key+" exists but does not match allowed values "+metadata_to_check['allowed_values']+".\nFAIL\n")  
-                        return CheckResult.FAILED
-                    
-                log_file.write("\nAll Metadatas PASSED validation.\n") 
+                self.details.append("FAIL: Metadata "+str(list(metadata_to_check.keys()))+" not found or incorrect in paths "+str(list(dict.fromkeys(invalid_tag_paths)))+". Strict field in conf file expects all paths in "+cloud_specific_conf_file_name+" to be correctly configured: "+str(tag_paths)+".")
+                log_file.write("\nCLOSE CALL: Metadata "+str(list(metadata_to_check.keys()))+" not found or incorrect in paths "+str(list(dict.fromkeys(invalid_tag_paths)))+". Strict field in conf file expects all paths in "+cloud_specific_conf_file_name+" to be correctly configured: "+str(tag_paths)+".\n") 
+                return CheckResult.FAILED
 
-        return CheckResult.PASSED
+            self.details.append("SUCCESS: Metadata "+str(list(metadata_to_check.keys()))+" found in paths "+str(list(dict.fromkeys([item for item in valid_paths if item not in invalid_tag_paths])))+". Tested paths: "+str(tag_paths)+".")
+            log_file.write("\nSUCCESS: Metadata "+str(list(metadata_to_check.keys()))+" found in paths "+str(list(dict.fromkeys([item for item in valid_paths if item not in invalid_tag_paths])))+". Tested paths: "+str(tag_paths)+".\n") 
+            return CheckResult.PASSED
 
-file_name = 'policy.json'
+policy_file_name = 'policy.json'
 
 default_metadata_pairs = {
     "maintainer": {
         "allowed_values": ".*",
         "version": "1.0",
-        "description": "A sample metadata pair - Any value accepted. To override this, create a "+file_name+" file in the working directory checkov runs from."
+        "description": "A sample metadata pair - Any value accepted. To override this, create a "+policy_file_name+" file in the working directory checkov runs from."
     }, 
     "maintainer_specific":{
         "allowed_values": "^[\w\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$",
         "version": "1.0",
-        "description": "A sample metadata pair - Specific regex. To override this, create a "+file_name+" file in the working directory checkov runs from."
+        "description": "A sample metadata pair - Specific regex. To override this, create a "+policy_file_name+" file in the working directory checkov runs from."
     },
     "random_label_key":{
         "allowed_values": "random_label_value",
         "version": "1.0",
-        "description": "A sample metadata pair - This will fail (unless you do have that unspecified_random_label). To override this, create a "+file_name+" file in the working directory checkov runs from."
+        "description": "A sample metadata pair - This will fail (unless you do have that unspecified_random_label). To override this, create a "+policy_file_name+" file in the working directory checkov runs from."
     }
 }
 
-if os.path.exists(file_name):
+if os.path.exists(policy_file_name):
     # If the file exists, open and read the JSON data
-    with open(file_name, 'r') as file:
+    with open(policy_file_name, 'r') as file:
         try:
             metadata_to_check = json.load(file)
         except:
@@ -124,13 +209,14 @@ else:
     # If the file doesn't exist, use the default dictionary
     metadata_to_check = default_metadata_pairs
 
-resource_type_file_name = 'cloud_specific_configurations.json'
+cloud_specific_conf_file_name = 'cloud_specific_configurations.json'
 
 default_resources_types = {
     "azure": {
         "keys": ["arm", "az", "azure", "azurerm"],
-        "description": "Resources to check for metadata pairs (Azure). To override this, create a "+resource_type_file_name+" file in the working directory checkov runs from.",
+        "description": "Resources to check for metadata pairs (Azure). To override this, create a "+cloud_specific_conf_file_name+" file in the working directory checkov runs from.",
         "tag_paths": ["labels","tags"],
+        "tag_paths_strict": False,
         "supported_types": [
             "azurerm_api_management",
             "azurerm_api_management_api",
@@ -571,10 +657,12 @@ default_resources_types = {
     },
     "google": {
         "keys": ["gcp", "google", "googlecloud", "azure_rm"],
-        "description": "Resources to check for metadata pairs (GCP). To override this, create a "+resource_type_file_name+" file in the working directory checkov runs from.",
-        "tag_paths": ["labels"],
+        "description": "Resources to check for metadata pairs (GCP). To override this, create a "+cloud_specific_conf_file_name+" file in the working directory checkov runs from.",
+        "tag_paths_strict": True,
+         "tag_paths": ["boot_disk.initialize_params.labels", "labels"],
         # WARNING: Obtained from ChatGPT - "give me a list of resource types that support GCP labels in the format google_tfresource_type"
         "supported_types": [
+            "google_compute_instance",
             "google_compute_instance",
             "google_storage_bucket",
             "google_bigquery_dataset",
@@ -610,8 +698,9 @@ default_resources_types = {
     },
     "aws": {
         "keys": ["aws", "amazon", "amazonwebservices", "amazonws"],
-        "description": "Resources to check for metadata pairs (AWS). To override this, create a "+resource_type_file_name+" file in the working directory checkov runs from.",
+        "description": "Resources to check for metadata pairs (AWS). To override this, create a "+cloud_specific_conf_file_name+" file in the working directory checkov runs from.",
         "tag_paths": ["tags"],
+        "tag_paths_strict": False,
         "supported_types": [
             "aws",
             "aws_root",
@@ -1199,9 +1288,9 @@ default_resources_types = {
     }
 }
 
-if os.path.exists(resource_type_file_name):
+if os.path.exists(cloud_specific_conf_file_name):
     # If the file exists, open and read the JSON data
-    with open(resource_type_file_name, 'r') as file:
+    with open(cloud_specific_conf_file_name, 'r') as file:
         try:
             resource_types_to_check = json.load(file)
         except:
