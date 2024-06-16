@@ -1,6 +1,6 @@
 # pac-on-rails
-Mini project to automate Policy as Code (PaC) and guardrails to ensure adherence to organizational policies.
-Supports Traditional IaC Infrastructure and Cloud Native.
+Mini project to automate Policy as Code (PaC) and guardrails to ensure adherence to tagging/labelling policies.
+Supports Traditional IaC Infrastructure and Container Images.
 
 ## Policy Engine 
 
