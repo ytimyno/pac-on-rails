@@ -48,6 +48,24 @@ The tagging policy is defined using JSON format, allowing for flexible customiza
 ### Customise
 Customise with cloud_specific_configurations.json and policy.json as needed. Else, it will use a pre-def set of values. To customise a file, it needs to be in the dir where checkov runs from (see future work).
 
+## Security Advisory - Before Running
+To use extra checks with Checkov CLI tool, we can:
+1. Specifying a directory with the extra checks' code, or
+2. Specifying a Git repo that contains the extra checks' code.
+
+I'd recommend one. And if you ask me about number two, I would always do it from a private and/or very well scrutinised git repo. 
+
+Checkov checks are really just running extra code: With custom Python checks, it's running custom Python scripts. With custom Python checks from a remote repo, it's running (potentially dangerous) custom Python scripts from a remote repo. 
+
+I done a simple PoC that creates a user, creates a files and runs bash commands. I installed an openssh server in the machine running Checkov and then was able to connect to it, using the created user (obviously, installs and user creation requires sudo, and connection may be harder with FW rules in place, but possibilities are endless, especially on the integrity side, where we can mess with the FS).
+
+    1. Try to SSH (not running, so I have connection refused)
+    2. Run malicious check from remote git repo
+    3. SSH with the newly created user
+
+Sky is the limit here. With or without root privileges, you can leave a mark. So, my advice is to be very careful when running random people's checks. This is true with any (especially open source) tool. That said, I feel the official Checkov documentation and GitHub pages could be clearer. The only place I could find that lightly touches on this is a small paragraph on best practices in the GitHub page (https://github.com/bridgecrewio/checkov?tab=readme-ov-file#configuration-using-a-config-file).
+
+
 ## Run
 
 ### Container Images
