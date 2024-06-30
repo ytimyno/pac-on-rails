@@ -53,18 +53,42 @@ To use extra checks with Checkov CLI tool, we can:
 1. Specifying a directory with the extra checks' code, or
 2. Specifying a Git repo that contains the extra checks' code.
 
-I'd recommend one. And if you ask me about number two, I would always do it from a private and/or very well scrutinised git repo. 
+I'd recommend (1). And if you ask me about number (2), I'd ensure the checks are from a private and/or very well scrutinised git repo. 
 
-Checkov checks are really just running extra code: With custom Python checks, it's running custom Python scripts. With custom Python checks from a remote repo, it's running (potentially dangerous) custom Python scripts from a remote repo. 
+Checkov checks are really just running extra code: 
+- With custom Python checks, it's running custom Python scripts. 
+- With custom Python checks from a remote repo, it's running (potentially dangerous) custom Python scripts from a remote repo. 
 
-I done a simple PoC that creates a user, creates a files and runs bash commands. I installed an openssh server in the machine running Checkov and then was able to connect to it, using the created user (obviously, installs and user creation requires sudo, and connection may be harder with FW rules in place, but possibilities are endless, especially on the integrity side, where we can mess with the FS).
+Sky is the limit here. With or without root privileges, you can leave a mark. My advice is **not to run extra checks unless the code has been reviewed and tested by yourself** (you do have to do the work, the "it's fine, open source means it's safe because everyone can check it" solution has been proven *NOT to work*). This is true with any (especially open source) tool. 
+
+That said, I feel the official Checkov documentation and GitHub pages could be clearer. The only place I could find that lightly touches on this is a small paragraph on best practices in the GitHub page (https://github.com/bridgecrewio/checkov?tab=readme-ov-file#configuration-using-a-config-file).
+
+### Malicious Check 1 - User + SSH
+
+I done a simple PoC that creates a user, creates a files and runs bash commands. It also installs an openssh server in the machine running Checkov which we can connect to it, using the created user. Installs and user creation requires sudo priviledges, and connections may be harder with FW rules in place, but possibilities are endless, and I have seen loads of scary attacks on workloads. Particularly scary on the integrity side, as we can mess with the filesystem.
 
     1. Try to SSH (not running, so I have connection refused)
     2. Run malicious check from remote git repo
     3. SSH with the newly created user
 
-Sky is the limit here. With or without root privileges, you can leave a mark. So, my advice is to be very careful when running random people's checks. This is true with any (especially open source) tool. That said, I feel the official Checkov documentation and GitHub pages could be clearer. The only place I could find that lightly touches on this is a small paragraph on best practices in the GitHub page (https://github.com/bridgecrewio/checkov?tab=readme-ov-file#configuration-using-a-config-file).
+### Malicious Check 2 - Infiltrate + Exfiltrate data
 
+Take a step back, what would an attacker want?
+- We have (almost arbitrary) command execution 
+- I guess we need a way to infiltrate/exfiltrate data!
+
+Queue ***CKV_COOL_MALI_2_CHECK***. This check silently:
+1. Clones a remote repository (git clone)
+2. Creates a new branch* (git checkout)
+3. Creates a file with data about the system in the cloned repo directory (keep it simple for PoC, endless opportunities)
+4. Commits file to the .git tree (git add & commit)
+5. Pushes to the Git repo (git push)
+6. Deletes traces of its activity (shutil.rmtree)
+
+*(because our attacker adheres to best practices and does not push to main ;) )
+
+#### I wanted some kind of reverse shell, but was being slowed by some connection refused errors. 
+![Who needs a reverse shell anyway...](no-revshell-no-problem.jpg)
 
 ## Run
 
