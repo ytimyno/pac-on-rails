@@ -63,6 +63,8 @@ Sky is the limit here. With or without root privileges, you can leave a mark. My
 
 That said, I feel the official Checkov documentation and GitHub pages could be clearer. The only place I could find that lightly touches on this is a small paragraph on best practices in the GitHub page (https://github.com/bridgecrewio/checkov?tab=readme-ov-file#configuration-using-a-config-file).
 
+***Update:*** Reached out to Palo Alto through their [security reports page](https://security.paloaltonetworks.com/report). Checkov documentation has been updated.
+
 ### Malicious Check 1 - User + SSH
 
 I done a simple PoC that creates a user, creates a files and runs bash commands. It also installs an openssh server in the machine running Checkov which we can connect to it, using the created user. Installs and user creation requires sudo priviledges, and connections may be harder with FW rules in place, but possibilities are endless, and I have seen loads of scary attacks on workloads. Particularly scary on the integrity side, as we can mess with the filesystem.
