@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-LABEL com.domain.maintainer="John Doe" version='1.0="hello"' maintainer_specific="my@email.com"
+LABEL com.domain.masintainer="John Doe" version='1.0="hello"'
 
 # Install necessary packages
 RUN apt-get update && \

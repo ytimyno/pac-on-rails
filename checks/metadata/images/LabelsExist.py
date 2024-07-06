@@ -13,15 +13,15 @@ if TYPE_CHECKING:
 class LabelCheck(BaseDockerfileCheck):
 
     def __init__(self, labels_to_check: List[dict]) -> None:
-        name = "Ensure that specified LABEL instructions have been added to container images"
+        name = "Ensure that mandatory LABEL instructions have been added to container images"
         id = "CKV_DOCKER_LABEL_CHECK"
         supported_instructions = ("*",)
         categories = (CheckCategories.NETWORKING,)
         self.labels_to_check = labels_to_check
-        super().__init__(name=name, id=id, categories=categories, supported_instructions=supported_instructions)
+        guideline = "This is a custom policy. Powered by Checkov and Python. Home: ytimyno/pac-on-rails"
+        super().__init__(name=name, id=id, categories=categories, supported_instructions=supported_instructions, guideline=guideline)
 
     def scan_resource_conf(self, conf: dict[str, list[_Instruction]]) -> Tuple[CheckResult, Union[list[_Instruction], None]]:  # type:ignore[override]  # special wildcard behaviour
-        
         
         # because we're looking for any use of "" or '' or nothing at all, the resulting matches will have 4 elements 
         label_pattern = re.compile(r'([\w\.\-]+)=(?:"([^"]+)"|\'([^\']+)\'|([^\'"][^ ]*))')
@@ -31,16 +31,17 @@ class LabelCheck(BaseDockerfileCheck):
 
         with open("scan_resource_labels.log", '+a') as log_file:
 
+            failCheck = False
+            message = "Checking for LABELS."
             log_file.write("\nValidating against:\n")
             json.dump(self.labels_to_check, log_file, indent=4)
 
             if "LABEL" in conf.keys():
                 raw_label_instructions = conf['LABEL']
             else:
-                self.details.append("No LABEL instruction found")  
                 log_file.write("\nNo LABEL instruction found. FAIL\n")
-
-                return CheckResult.FAILED, None
+                message = message+" No LABEL instruction found. FAIL"
+                failCheck = True
             
             for raw_label_instructions in conf['LABEL']:
 
@@ -60,26 +61,36 @@ class LabelCheck(BaseDockerfileCheck):
             for label_to_check_key,label_to_check in self.labels_to_check.items():
 
                 if label_to_check_key not in label_pairs.keys():
-                    self.details.append("Label "+label_to_check_key+" is not defined")
                     log_file.write("\nLabel "+label_to_check_key+" is not defined. FAIL\n")              
-                    return CheckResult.FAILED, None
-                
-                allowed_values_pattern = re.compile(r""+label_to_check['allowed_values'])
-                if allowed_values_pattern.match(label_pairs[label_to_check_key]):
-                    log_file.write("\nLabel "+label_to_check_key+" defined and within allowed values "+label_to_check['allowed_values']+".\n") 
-                    continue
-                else:
-                    self.details.append("Label "+label_to_check_key+" exists but does not match allowed values "+label_to_check['allowed_values'])
-                    log_file.write("\nLabel "+label_to_check_key+" exists but does not match allowed values "+label_to_check['allowed_values']+".\nFAIL\n")  
-                    return CheckResult.FAILED, None
-                
-            log_file.write("\nAll labels PASSED validation.\n") 
+                    failCheck = True
+                    message = message+" "+label_to_check_key+": UNDEFINED"
 
-        return CheckResult.PASSED, None
+                else:
+                
+                    allowed_values_pattern = re.compile(r""+label_to_check['allowed_values'])
+                    if allowed_values_pattern.match(label_pairs[label_to_check_key]):
+                        log_file.write("\nLabel "+label_to_check_key+" defined and within allowed values "+label_to_check['allowed_values']+".\n")
+                        message = message+" "+label_to_check_key+": OK"
+                        continue
+                    else:
+                        log_file.write("\nLabel "+label_to_check_key+" exists but does not match allowed values "+label_to_check['allowed_values']+".\nFAIL\n")
+                        message = message+" "+label_to_check_key+": INVALID ("+str(label_pairs[label_to_check_key])+")"
+                        failCheck = True
+
+            if failCheck:
+                self.details.append(message)
+                self.guideline = message
+                log_file.write(message) 
+
+                return CheckResult.FAILED, None
+            
+            log_file.write(message) 
+            self.guideline = message
+            return CheckResult.PASSED, None
 
 
 default_labels = {
-    "maintainer": {
+    "com.domain.maintainer": {
         "allowed_values": ".*",
         "version": "1.0",
         "description": "A sample label - Any value accepted"
@@ -88,12 +99,6 @@ default_labels = {
         "allowed_values": "^[\w\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$",
         "version": "1.0",
         "description": "A sample label - Specific regex"
-    },
-    "random_label":{
-        "key": "unspecified_random_label",
-        "allowed_values": ".*",
-        "version": "1.0",
-        "description": "A sample label - This will fail"
     }
 }
 
