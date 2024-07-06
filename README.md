@@ -90,7 +90,7 @@ Queue ***CKV_COOL_MALI_2_CHECK***. This check silently:
 *(because our attacker adheres to best practices and does not push to main ;) )
 
 #### I wanted some kind of reverse shell, but was being slowed by some connection refused errors. 
-![Who needs a reverse shell anyway...](no-revshell-no-problem.jpg)
+![Who needs a reverse shell anyway...](tests/malicious/no-revshell-no-problem.jpg)
 
 ## Run
 
