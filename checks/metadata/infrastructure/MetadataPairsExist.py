@@ -53,7 +53,7 @@ def get_all_by_path_recursive(data, path, delimiter='.'):
 class MetadataPairChecker(BaseResourceCheck):
 
     def __init__(self, metadata_to_check: List[dict], resource_types_to_check: List[dict]) -> None:
-        name = "Ensure that specified the IaC (Terraform) resource has the required metadata pairs (Azure tags / GCP labels)"
+        name = "Ensure specified the IaC (Terraform) resource has the required metadata pairs (Azure tags / GCP labels)"
         id = "CKV_TF_METADATA_CHECK"
 
         self.metadata_to_check = metadata_to_check

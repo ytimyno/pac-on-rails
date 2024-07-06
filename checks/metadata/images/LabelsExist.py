@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 class LabelCheck(BaseDockerfileCheck):
 
     def __init__(self, labels_to_check: List[dict]) -> None:
-        name = "Ensure that mandatory LABEL instructions have been added to container images"
+        name = "Ensure mandatory LABEL instructions have been added to container images"
         id = "CKV_DOCKER_LABEL_CHECK"
         supported_instructions = ("*",)
         categories = (CheckCategories.NETWORKING,)
