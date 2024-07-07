@@ -32,12 +32,16 @@ resource "google_compute_instance" "default" {
   name         = "my-instance"
   machine_type = "n2-standard-2"
   zone         = "us-central1-a"
+  shielded_instance_config {
+    enable_secure_boot = true
+  }
 
   tags = ["foo", "bar"]
   labels = {
     maintainer = "hi"
     maintainer_specific = var.email,
   }
+
 
   boot_disk {
     initialize_params {

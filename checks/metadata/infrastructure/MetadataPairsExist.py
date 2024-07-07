@@ -115,7 +115,7 @@ class MetadataPairChecker(BaseResourceCheck):
 
                                 # Accommodating multiple tag paths with the expected keys
 
-                                if k in metadata_keys_path_value.keys():
+                                if k in metadata_keys_path_value:
                                     metadata_keys_path_value[k][tag_path] = v
 
                                 metadata_keys_path_value[k] = {

@@ -1,9 +1,8 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, List, Any
-import smtplib, socket, subprocess
-import subprocess, sys
+from typing import Any
+import subprocess
 
 from checkov.terraform.checks.resource.base_resource_check import BaseResourceCheck
 from checkov.common.models.enums import CheckResult, CheckCategories
