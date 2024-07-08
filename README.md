@@ -108,6 +108,11 @@ checkov -d *terraform_dir/* --external-checks-dir *checks/metadata/infrastructur
 - Combine Checks: Explore combining Cloud-Native (CN) and traditional IaC checks into a unified metadata validation approach.
 - Customize Input Paths: Customize the path to input files (policy.json, cloud_specific_configurations.json) for higher flexibility.
 
-## Contact
+## Feedback & Contact
 
-For questions or feedback, please contact [ytimyno@gmail.com](mailto:ytimyno@gmail.com).
+For questions, feedback, bug reports, please use one of the below:
+1. **GitHub Issues:** Report bugs or request features on our [GitHub Issues page](https://github.com/ytimyno/pac-on-rails/issues).
+
+2. **Email:** For general feedback, you can email us at [ytimyno@gmail.com](mailto:ytimyno@gmail.com).
+
+
