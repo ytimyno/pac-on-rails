@@ -102,7 +102,7 @@ default_labels = {
     }
 }
 
-file_name = 'containerfile_labels.json'
+file_name = 'policy.json'
 
 if os.path.exists(file_name):
     # If the file exists, open and read the JSON data

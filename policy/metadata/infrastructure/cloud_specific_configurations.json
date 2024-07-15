@@ -1,9 +1,48 @@
 {
     "azure": {
-        "keys": ["arm", "az", "azure", "azurerm"],
+        "keys": [
+            "arm",
+            "az",
+            "azure",
+            "azurerm"
+        ],
         "description": "Resources to check for metadata pairs (Azure). To override this, modify this file, leaving it in the working directory checkov runs from.",
         "tag_paths_strict": false,
-        "tag_paths": ["tags"],
+        "tag_paths": [
+            {
+                "path": "",
+                "attributes": {
+                    "one_of": [
+                        {
+                            "name": "tags",
+                            "cloud_native": false
+                        }
+                    ],
+                    "required": [],
+                    "all": [],
+                    "optional": []
+                }
+            },
+            {
+                "path": "default_node_pool",
+                "attributes": {
+                    "one_of": [],
+                    "required": [
+                        {
+                            "name": "tags",
+                            "cloud_native": false
+                        }
+                    ],
+                    "all": [],
+                    "optional": [
+                        {
+                            "name": "node_labels",
+                            "cloud_native": true
+                        }
+                    ]
+                }
+            }
+        ],
         "supported_types": [
             "azurerm_api_management",
             "azurerm_api_management_api",
@@ -440,13 +479,58 @@
             "azurerm_iot_time_series_insights_access_policy",
             "azurerm_iot_time_series_insights_reference_data_set",
             "azurerm_iot_time_series_insights_standard_environment"
-        ]        
+        ]
     },
     "google": {
-        "keys": ["gcp", "google", "googlecloud", "azure_rm"],
+        "keys": [
+            "gcp",
+            "google",
+            "googlecloud"
+        ],
         "description": "Resources to check for metadata pairs (GCP). To override this, modify this file, leaving it in the working directory checkov runs from.",
-        "tag_paths_strict": true,
-        "tag_paths": ["boot_disk.initialize_params.labels", "labels"],
+        "tag_paths": [
+            {
+                "path": "",
+                "attributes": {
+                    "one_of": [
+                        {
+                            "name": "resource_labels",
+                            "cloud_native": false
+                        },
+                        {
+                            "name": "user_labels",
+                            "cloud_native": false
+                        },
+                        {
+                            "name": "labels",
+                            "cloud_native": false
+                        }
+                    ],
+                    "required": [],
+                    "all": [],
+                    "optional": []
+                }
+            },
+            {
+                "path": "node_config",
+                "attributes": {
+                    "one_of": [],
+                    "required": [
+                        {
+                            "name": "resource_labels",
+                            "cloud_native": false
+                        }
+                    ],
+                    "all": [],
+                    "optional": [
+                        {
+                            "name": "labels",
+                            "cloud_native": true
+                        }
+                    ]
+                }
+            }
+        ],
         "supported_types": [
             "google_compute_instance",
             "google_storage_bucket",
@@ -482,10 +566,34 @@
         ]
     },
     "aws": {
-        "keys": ["aws", "amazon", "amazonwebservices", "amazonws"],
+        "keys": [
+            "aws",
+            "amazon",
+            "amazonwebservices",
+            "amazonws"
+        ],
         "description": "Resources to check for metadata pairs (AWS). To override this, modify this file, leaving it in the working directory checkov runs from.",
         "tag_paths_strict": true,
-        "tag_paths": ["tags"],
+        "tag_paths": [
+            {
+                "path": "",
+                "attributes": {
+                    "one_of": [
+                        {
+                            "name": "tags",
+                            "cloud_native": false
+                        },
+                        {
+                            "name": "tags_all",
+                            "cloud_native": false
+                        }
+                    ],
+                    "required": [],
+                    "all": [],
+                    "optional": []
+                }
+            }
+        ],
         "supported_types": [
             "aws",
             "aws_root",
