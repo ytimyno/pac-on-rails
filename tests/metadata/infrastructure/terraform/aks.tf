@@ -1,6 +1,9 @@
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"
+  tags = {
+    "Environment" = "Anything"
+  }
 }
 
 resource "azurerm_kubernetes_cluster" "example" {
@@ -14,10 +17,10 @@ resource "azurerm_kubernetes_cluster" "example" {
     node_count = 1
     vm_size    = "Standard_D2_v2"
     tags = {
-      Environment = "Production"
+      Environment = "default_node_pool.csp.tags"
     }
     node_labels = {
-      "domain.key" = "my k8s label"
+      "domain.key" = "my k8s label azure node_pool"
     }
   }
 
@@ -26,7 +29,7 @@ resource "azurerm_kubernetes_cluster" "example" {
   }
 
   tags = {
-    Environment = "Production"
+    Environment = "azurerm_kubernetes_cluster.csp.tag"
   }
 }
 

@@ -2,8 +2,9 @@ resource "google_container_cluster" "primary" {
   name               = "marcellus-wallace"
   location           = "us-central1-a"
   initial_node_count = 3
+
   resource_labels = {
-    ssa = "xzd"
+    Environment = "google_container_cluster.csp.labels"
   }
   private_cluster_config {
 
@@ -31,11 +32,11 @@ resource "google_container_cluster" "primary" {
       "https://www.googleapis.com/auth/cloud-platform"
     ]
     labels = {
-      foo = "bar"
+      "Environment" = "node_config.k8s.labels"
     }
     tags = ["foo", "bar"]
     resource_labels = {
-      ssa = "xzd"
+      Environment = "node_config.csp.labels"
     }
   }
   timeouts {
@@ -43,3 +44,4 @@ resource "google_container_cluster" "primary" {
     update = "40m"
   }
 }
+
