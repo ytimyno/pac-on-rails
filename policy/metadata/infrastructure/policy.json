@@ -3,5 +3,10 @@
         "allowed_values": ".*",
         "version": "1.0",
         "description": "A sample label - Any value accepted"
+    },
+    "Owner": {
+        "allowed_values": ".*",
+        "version": "1.0",
+        "description": "A sample label - Any value accepted"
     }
 }

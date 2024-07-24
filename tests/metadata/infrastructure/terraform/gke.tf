@@ -5,6 +5,7 @@ resource "google_container_cluster" "primary" {
 
   resource_labels = {
     Environment = "google_container_cluster.csp.labels"
+    Owner = "env"
   }
   private_cluster_config {
 
@@ -31,12 +32,10 @@ resource "google_container_cluster" "primary" {
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
-    labels = {
-      "Environment" = "node_config.k8s.labels"
-    }
     tags = ["foo", "bar"]
-    resource_labels = {
-      Environment = "node_config.csp.labels"
+    labels = {
+      Environment = "env"
+      Owner = "env"
     }
   }
   timeouts {

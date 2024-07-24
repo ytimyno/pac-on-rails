@@ -17,10 +17,11 @@ resource "azurerm_kubernetes_cluster" "example" {
     node_count = 1
     vm_size    = "Standard_D2_v2"
     tags = {
-      Environment = "default_node_pool.csp.tags"
+      Environment = "default_node_pool.env"
+      Owner = "default_node_pool.own"
     }
     node_labels = {
-      "domain.key" = "my k8s label azure node_pool"
+      "dom2ain.key" = "my k8s label azure node_pool"
     }
   }
 
@@ -29,8 +30,10 @@ resource "azurerm_kubernetes_cluster" "example" {
   }
 
   tags = {
-    Environment = "azurerm_kubernetes_cluster.csp.tag"
+    Owner = "own"
+    Environment = "own"
   }
+  
 }
 
 output "client_certificate" {
