@@ -12,18 +12,29 @@ This repository leverages Checkov to perform checks against container images' la
 
 This repository leverages Checkov to perform checks against infrastructure metadata policies (Terraform-defined). The engine ensures compliance with the specified policy (see customisation section).
 
-#### Supported Cloud Providers
-
-- **AWS**
-- **Azure**
-- **Google Cloud Platform (GCP)**
-
-#### Cloud-specific Configuration
+#### Extendable CSP/specific configuration
 
 Each cloud provider has its own configuration section within the engine. The JSON file lists specific configurations to take, according to the CSP. This is here, not only, but also because CSPs use different terms to refer to the same thing.
-- *tag_paths*: This lists the paths to check for metadata (within Terraform, for the specific provider). Easy mode, specify one tag path per CSP. Medium mode: Specify multiple paths. Hardcore, specify multiple paths and sub.paths (see example in [cloud_specific_configurations.json](./policy/metadata/infrastructure/cloud_specific_configurations.json)). Note specifying te«he capability to specify sub.paths is quite tigthly coupled with a few test examples. Hence it is fragile. Easy mode recommended.
-- *tag_paths_strict*: If multiple paths are specified, they all will be checked. If tag_paths_strict is True, all of the paths must be present in the resource and must comply with the policy. See the section [metadata policy format](#metadata-policy-format). Copy an example from [policy.json](./policy/metadata/infrastructure/policy.json) into you running directory, as explained in the [run section](#run).
-- *Supported Resource Types*: Lists of Cloud/specific resource types where tagging policies are enforced. See [future work](#future-work).
+
+This policy is currently applicable to Terraform resources. As you will find out, different providers, and even different resources within the same provider, use different attributes and attribute "paths" to apply metadata at different scopes. 
+
+
+- **`csp`**: Configuration related to the CSP resources. Contains details on how to validate tags for that CSP infrastructure.
+  - **Example Values**: `azure`, `google`, `aws`
+
+
+- **`keys`**: List of identifiers used to recognize CSP-related resources. These keywords help in identifying and applying the tagging policy to the correct resource types.
+  - **Example Values**: `["arm", "az", "azure", "azurerm"]` or `["gcp", "google", "googlecloud"]`
+
+- **`supported_types`**: List of CSP resource types targeted by the tagging policy. Each type includes specific tag paths and requirements.
+  - **Example Values**:
+    - **`name`**: The name of the resource type (e.g., `azurerm_kubernetes_cluster`).
+    - **`tag_paths`**: List of paths within the resource where tags are validated.
+      - **`path`**: Optional sub path eithin the resource configuration, leads to the tags attribute (e.g., `default_node_pool`).
+      - **`attributes`**:
+        - **`one_of`**: At least one of these must be present (e.g., `tags`).
+        - **`required`**: All these attributes must be present (e.g., `tags`).
+
 
 
 ## Metadata Policy Format (Container Images & Traditional IaC Infrastructure)
@@ -104,7 +115,6 @@ checkov -d *terraform_dir/* --external-checks-dir *checks/metadata/infrastructur
 
 ## Future Work
 
-- Refine IaC Resources: Review and reduce the list of resources (supported_resources) that support tags/labels.
 - Combine Checks: Explore combining Cloud-Native (CN) and traditional IaC checks into a unified metadata validation approach.
 - Customize Input Paths: Customize the path to input files (policy.json, cloud_specific_configurations.json) for higher flexibility.
 
