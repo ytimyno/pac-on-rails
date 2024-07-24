@@ -7,7 +7,6 @@
             "azurerm"
         ],
         "description": "Resources to check for metadata pairs (Azure). To override this, modify this file, leaving it in the working directory checkov runs from.",
-        "tag_paths_strict": false,
         "supported_types": [
             {
                 "name": "azurerm_kubernetes_cluster",
