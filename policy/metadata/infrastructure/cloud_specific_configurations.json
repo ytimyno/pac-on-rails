@@ -78,6 +78,26 @@
                                 },
                                 {
                                     "name": "labels",
+                                    "cloud_native": true
+                                },
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ],
+                            "required": []
+                        }
+                    },
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [
+                                {
+                                    "name": "resource_labels",
+                                    "cloud_native": false
+                                },
+                                {
+                                    "name": "labels",
                                     "cloud_native": false
                                 },
                                 {

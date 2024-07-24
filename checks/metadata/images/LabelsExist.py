@@ -19,6 +19,15 @@ class LabelCheck(BaseDockerfileCheck):
         categories = (CheckCategories.NETWORKING,)
         self.labels_to_check = labels_to_check
         guideline = "This is a custom policy. Powered by Checkov and Python. Home: ytimyno/pac-on-rails"
+
+        formatted_labels = "\n\n\t\tLabels Required By Policy:\n"
+        for key, value in labels_to_check.items():
+            formatted_labels += f"\t\t\t{key}:\n"
+            for sub_key, sub_value in value.items():
+                formatted_labels += f"\t\t\t\t{sub_key.capitalize()}: {sub_value}\n"
+
+        guideline += formatted_labels
+
         super().__init__(name=name, id=id, categories=categories, supported_instructions=supported_instructions, guideline=guideline)
 
     def scan_resource_conf(self, conf: dict[str, list[_Instruction]]) -> Tuple[CheckResult, Union[list[_Instruction], None]]:  # type:ignore[override]  # special wildcard behaviour
@@ -42,6 +51,12 @@ class LabelCheck(BaseDockerfileCheck):
                 log_file.write("\nNo LABEL instruction found. FAIL\n")
                 message = message+" No LABEL instruction found. FAIL"
                 failCheck = True
+
+                self.details.append(message)
+                self.guideline = message
+                log_file.write(message) 
+
+                return CheckResult.FAILED, None
             
             for raw_label_instructions in conf['LABEL']:
 
@@ -79,13 +94,13 @@ class LabelCheck(BaseDockerfileCheck):
 
             if failCheck:
                 self.details.append(message)
-                self.guideline = message
+                self.guideline = self.guideline + "\n\n\t" + message
                 log_file.write(message) 
 
                 return CheckResult.FAILED, None
             
             log_file.write(message) 
-            self.guideline = message
+            self.guideline = self.guideline + "\n" + message
             return CheckResult.PASSED, None
 
 
@@ -96,7 +111,7 @@ default_labels = {
         "description": "A sample label - Any value accepted"
     }, 
     "maintainer_specific":{
-        "allowed_values": "^[\w\.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$",
+        "allowed_values": "^[\\w\\.-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}$",
         "version": "1.0",
         "description": "A sample label - Specific regex"
     }

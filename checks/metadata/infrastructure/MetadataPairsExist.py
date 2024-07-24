@@ -225,11 +225,11 @@ class MetadataPairChecker(BaseResourceCheck):
         categories = (CheckCategories.CONVENTION,)
         guideline = "This is a custom policy. Powered by Checkov and Python. Home: ytimyno/pac-on-rails.\n"
 
-        formatted_metadata = "\n\t\tMetadata Information:\n"
+        formatted_metadata = "\n\t\tMetadata Required By Policy:\n"
         for key, value in metadata_to_check.items():
-            formatted_metadata += f"\t\t{key}:\n"
+            formatted_metadata += f"\t\t\t{key}:\n"
             for sub_key, sub_value in value.items():
-                formatted_metadata += f"\t\t  {sub_key.capitalize()}: {sub_value}\n"
+                formatted_metadata += f"\t\t\t\t{sub_key.capitalize()}: {sub_value}\n"
 
         guideline += formatted_metadata
 
@@ -297,10 +297,15 @@ class MetadataPairChecker(BaseResourceCheck):
             
             return CheckResult.PASSED
 
-policy_file_name = '../../../policy/metadata/infrastructure/policy.json'
+policy_file_name = 'policy.json'
 
 default_metadata_pairs = {
     "Environment": {
+        "allowed_values": ".*",
+        "version": "1.0",
+        "description": "A sample label - Any value accepted"
+    },
+    "Owner": {
         "allowed_values": ".*",
         "version": "1.0",
         "description": "A sample label - Any value accepted"
@@ -318,7 +323,7 @@ else:
     # If the file doesn't exist, use the default dictionary
     metadata_to_check = default_metadata_pairs
 
-cloud_specific_conf_file_name = '../../../policy/metadata/infrastructure/cloud_specific_configurations.json'
+cloud_specific_conf_file_name = 'cloud_specific_configurations.json'
 
 default_resources_types = {
     "azure": {
@@ -337,14 +342,13 @@ default_resources_types = {
                     {
                         "path": "",
                         "attributes": {
-                            "one_of": [
+                            "one_of": [],
+                            "required": [
                                 {
                                     "name": "tags",
                                     "cloud_native": False
                                 }
-                            ],
-                            "required": [],
-                            "optional": []
+                            ]
                         }
                     },
                     {
@@ -355,12 +359,6 @@ default_resources_types = {
                                 {
                                     "name": "tags",
                                     "cloud_native": False
-                                }
-                            ],
-                            "optional": [
-                                {
-                                    "name": "node_labels",
-                                    "cloud_native": True
                                 }
                             ]
                         }
@@ -378,12 +376,6 @@ default_resources_types = {
                                 {
                                     "name": "tags",
                                     "cloud_native": False
-                                }
-                            ],
-                            "optional": [
-                                {
-                                    "name": "node_labels",
-                                    "cloud_native": True
                                 }
                             ]
                         }
@@ -403,23 +395,44 @@ default_resources_types = {
             {
                 "name": "google_container_cluster",
                 "tag_paths": [
-    
                     {
                         "path": "node_config",
                         "attributes": {
-                            "one_of": [],
-                            "required": [
+                            "one_of": [
                                 {
                                     "name": "resource_labels",
                                     "cloud_native": False
-                                }
-                            ],
-                            "optional": [
+                                },
                                 {
                                     "name": "labels",
                                     "cloud_native": True
+                                },
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": False
                                 }
-                            ]
+                            ],
+                            "required": []
+                        }
+                    },
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [
+                                {
+                                    "name": "resource_labels",
+                                    "cloud_native": False
+                                },
+                                {
+                                    "name": "labels",
+                                    "cloud_native": False
+                                },
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": False
+                                }
+                            ],
+                            "required": []
                         }
                     }
                 ]
@@ -427,6 +440,7 @@ default_resources_types = {
         ]
     }
 }
+
 if os.path.exists(cloud_specific_conf_file_name):
     # If the file exists, open and read the JSON data
     with open(cloud_specific_conf_file_name, 'r') as file:
