@@ -1,12 +1,12 @@
 {
-    "com.domain.maintainer": {
+    "Environment": {
         "allowed_values": ".*",
         "version": "1.0",
         "description": "A sample label - Any value accepted"
-    }, 
-    "maintainer_specific":{
-        "allowed_values": "^[\\w\\.-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}$",
+    },
+    "Owner": {
+        "allowed_values": ".*",
         "version": "1.0",
-        "description": "A sample label - Specific regex"
+        "description": "A sample label - Any value accepted"
     }
 }
