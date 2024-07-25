@@ -4,40 +4,11 @@ Supports Traditional IaC Infrastructure and Container Images.
 
 ## Policy Engine 
 
-### Container Images
+- This repository holds Checkov custom policies to perform checks against container images' labelling policies. The engine ensures compliance with the specified policy (see customisation section).
 
-This repository leverages Checkov to perform checks against container images' labelling policies. The engine ensures compliance with the specified policy (see customisation section).
+- This repository holds Checkov custom policies to perform checks against infrastructure metadata policies (Terraform-defined). The engine ensures compliance with the specified policy (see customisation section).
 
-### Traditional IaC Infrastructure
-
-This repository leverages Checkov to perform checks against infrastructure metadata policies (Terraform-defined). The engine ensures compliance with the specified policy (see customisation section).
-
-#### Extendable CSP/specific configuration
-
-Each cloud provider has its own configuration section within the engine. The JSON file lists specific configurations to take, according to the CSP. This is here, not only, but also because CSPs use different terms to refer to the same thing.
-
-This policy is currently applicable to Terraform resources. As you will find out, different providers, and even different resources within the same provider, use different attributes and attribute "paths" to apply metadata at different scopes. 
-
-
-- **`csp`**: Configuration related to the CSP resources. Contains details on how to validate tags for that CSP infrastructure.
-  - **Example Values**: `azure`, `google`, `aws`
-
-
-- **`keys`**: List of identifiers used to recognize CSP-related resources. These keywords help in identifying and applying the tagging policy to the correct resource types.
-  - **Example Values**: `["arm", "az", "azure", "azurerm"]` or `["gcp", "google", "googlecloud"]`
-
-- **`supported_types`**: List of CSP resource types targeted by the tagging policy. Each type includes specific tag paths and requirements.
-  - **Example Values**:
-    - **`name`**: The name of the resource type (e.g., `azurerm_kubernetes_cluster`).
-    - **`tag_paths`**: List of paths within the resource where tags are validated.
-      - **`path`**: Optional sub path eithin the resource configuration, leads to the tags attribute (e.g., `default_node_pool`).
-      - **`attributes`**:
-        - **`one_of`**: At least one of these must be present (e.g., `tags`).
-        - **`required`**: All these attributes must be present (e.g., `tags`).
-
-
-
-## Metadata Policy Format (Container Images & Traditional IaC Infrastructure)
+### Metadata Policy Format (Container Images & Traditional IaC Infrastructure)
 
 The tagging policy is defined using JSON format, allowing for flexible customization of metadata pairs and their validation rules.
 
@@ -56,7 +27,73 @@ The tagging policy is defined using JSON format, allowing for flexible customiza
 }
 ```
 
-### Customise
+### Extendable CSP-specific Configuration (Traditional IaC Infrastructure)
+
+Each cloud provider has its own configuration section within the engine. The JSON file lists specific configurations to take, according to the CSP. This is here, not only, but also because CSPs use different terms to refer to the same thing.
+
+This policy is currently applicable to Terraform resources. As you will find out, different providers, and even different resources within the same provider, use different attributes and attribute "paths" to apply metadata at different scopes. 
+
+```json
+{
+  "azure": {
+      "keys": [
+          "arm",
+          "az",
+          "azure",
+          "azurerm"
+      ],
+      "description": "Resources to check for metadata pairs (Azure). To override this, modify this file, leaving it in the working directory checkov runs from.",
+      "supported_types": [
+          {
+              "name": "azurerm_kubernetes_cluster",
+              "tag_paths": [
+                  {
+                      "path": "",
+                      "attributes": {
+                          "one_of": [],
+                          "required": [
+                              {
+                                  "name": "tags",
+                                  "cloud_native": false
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "path": "default_node_pool",
+                      "attributes": {
+                          "one_of": [],
+                          "required": [
+                              {
+                                  "name": "tags",
+                                  "cloud_native": false
+                              }
+                          ]
+                      }
+                  }
+              ]
+          }
+      ]
+  }
+}
+```
+
+- **`csp`**: Configuration related to the CSP resources. Contains details on how to validate tags for that CSP infrastructure.
+  - **Example Values**: `azure`, `google`, `aws`
+
+- **`keys`**: List of identifiers used to recognize CSP-related resources. These keywords help in identifying and applying the tagging policy to the correct resource types.
+  - **Example Values**: `["arm", "az", "azure", "azurerm"]` or `["gcp", "google", "googlecloud"]`
+
+- **`supported_types`**: List of CSP resource types targeted by the tagging policy. Each type includes specific tag paths and requirements.
+  - **Example Values**:
+    - **`name`**: The name of the resource type (e.g., `azurerm_kubernetes_cluster`).
+    - **`tag_paths`**: List of paths within the resource where tags are validated.
+      - **`path`**: Optional sub path eithin the resource configuration, leads to the tags attribute (e.g., `default_node_pool`).
+      - **`attributes`**:
+        - **`one_of`**: At least one of these must be present (e.g., `tags`).
+        - **`required`**: All these attributes must be present (e.g., `tags`).
+
+## Customise
 Customise with cloud_specific_configurations.json and policy.json as needed. Else, it will use a pre-def set of values. To customise a file, it needs to be in the dir where checkov runs from (see future work).
 
 ## Security Advisory - Before Running

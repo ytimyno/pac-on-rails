@@ -84,7 +84,7 @@ def validate_one_of_tags(self, prefix, tag_path_attribute_required, conf, log_fi
                             continue
                         else:
                             log_file.write(f"WARN: Metadata {k} exists in on_of_paths but its value ({v}) does not match allowed values {self.metadata_to_check[k]['allowed_values']}.\n")
-                            policied_tag_keys.append(k)
+                            # policied_tag_keys.append(k)
                             message += f" {k}: INVALID"
                             continue
             except:
@@ -144,7 +144,6 @@ def validate_required_tags(self, prefix, tag_path_attribute_required, conf, log_
         message = "Checking for metadata."
         for required_tags_kvs_kv in required_tags_kvs:
             try:
-
                 for k,v in required_tags_kvs_kv.items():
 
                     if k in self.metadata_to_check.keys():
@@ -188,7 +187,7 @@ def validate_required_tags(self, prefix, tag_path_attribute_required, conf, log_
         
         log_message = (
             "\n\n\t**** SUMMARY OF FAILURE ****\n"
-            "\n\t\tRequired CSP paths do not contain all policy defined tags.\n"
+            "\n\t\tRequired CSP paths do not contain all policy defined tags.\n\n"
             "\t\tMetadata attribute paths to check against:\n"
             f"\t\t\t{paths_checked}\n\n"
             "\t\tMetadata validated against:\n"
@@ -306,7 +305,7 @@ default_metadata_pairs = {
         "description": "A sample label - Any value accepted"
     },
     "Owner": {
-        "allowed_values": ".*",
+        "allowed_values": "^[\\w\\.-]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}$",
         "version": "1.0",
         "description": "A sample label - Any value accepted"
     }
