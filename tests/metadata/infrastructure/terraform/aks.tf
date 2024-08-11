@@ -220,3 +220,50 @@ resource "azurerm_kubernetes_cluster" "example_aks_8" {
     Owner = "Hannah@mail.com"
   }
 }
+
+
+resource "azurerm_kubernetes_cluster" "example_9" {
+  name                = "example-aks-6"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  dns_prefix          = "exampleaks6"
+
+  tags = {
+    Environment = "Production"
+    Owner = "Frank@mail.com"
+  }
+
+  default_node_pool {
+    name       = "default"
+    node_count = 6
+    vm_size    = "Standard_D2_v2"
+
+  }
+} 
+
+
+resource "azurerm_storage_account" "example_sa_1" {
+  name                     = "storageaccountname"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    Environment = "staging"
+    Owner = "noemail"
+  }
+}
+
+resource "azurerm_storage_account" "example_sa_2" {
+  name                     = "storageaccountname"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    Environment = "staging"
+    Owner = "user@domain.tld"
+  }
+}

@@ -2861,6 +2861,1927 @@
                         }
                     }
                 ]
+            },
+            {
+                "name": "azurerm_kusto_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_data_factory",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_data_factory_linked_service_azure_databricks",
+                "tag_paths": [
+                    {
+                        "path": "new_cluster_config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "custom_tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_data_share_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_data_protection_backup_vault",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_data_protection_resource_guard",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mariadb_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_database",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_elasticpool",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_failover_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_job_agent",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_managed_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_virtual_machine",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mssql_virtual_machine_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mysql_flexible_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mysql_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_postgresql_flexible_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_postgresql_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_sql_database",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_sql_elasticpool",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_sql_failover_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_sql_managed_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_sql_server",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_certificate",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_key",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_managed_hardware_security_module",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_managed_hardware_security_module_key",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_managed_storage_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_managed_storage_account_sas_token_definition",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_key_vault_secret",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_lb",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_load_test",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_log_analytics_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_log_analytics_query_pack",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_log_analytics_query_pack_query",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_log_analytics_saved_search",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_log_analytics_solution",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_log_analytics_workspace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_integration_service_environment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_logic_app_integration_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_logic_app_standard",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_logic_app_workflow",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_logz_monitor",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_logz_sub_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_machine_learning_datastore_blobstorage",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_machine_learning_datastore_datalake_gen2",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_machine_learning_datastore_fileshare",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_machine_learning_inference_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_machine_learning_synapse_spark",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_machine_learning_workspace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_managed_application",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_managed_application_definition",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_maintenance_configuration",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_maps_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_maps_creator",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_media_live_event",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_media_services_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_media_streaming_endpoint",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_eventgrid_domain",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_eventgrid_system_topic",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_eventgrid_topic",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_eventhub_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_eventhub_namespace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_notification_hub",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_notification_hub_namespace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_relay_namespace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_servicebus_namespace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_signalr_service",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_web_pubsub",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_spatial_anchors_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_attached_data_network",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_data_network",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_packet_core_control_plane",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_packet_core_data_plane",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_service",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_sim_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_sim_policy",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_site",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_mobile_network_slice",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_action_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_action_rule_action_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_action_rule_suppression",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_activity_log_alert",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_alert_processing_rule_action_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_alert_processing_rule_suppression",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_alert_prometheus_rule_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_autoscale_setting",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_data_collection_endpoint",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_data_collection_rule",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_metric_alert",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_private_link_scope",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_scheduled_query_rules_alert",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_scheduled_query_rules_alert_v2",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_scheduled_query_rules_log",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_smart_detector_alert_rule",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_monitor_workspace",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_network_function_azure_traffic_collector",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_network_function_collector_policy",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_hpc_cache",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_storage_account",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_storage_sync",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_management_group_template_deployment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_resource_deployment_script_azure_cli",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_resource_deployment_script_azure_power_shell",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_resource_group_template_deployment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_subscription_template_deployment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_tenant_template_deployment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_workloads_sap_discovery_virtual_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_workloads_sap_single_node_virtual_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "azurerm_workloads_sap_three_tier_virtual_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "tags",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
             }
         ]
     },
