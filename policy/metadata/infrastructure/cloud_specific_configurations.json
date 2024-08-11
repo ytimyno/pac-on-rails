@@ -34,7 +34,7 @@
                                 },
                                 {
                                     "name": "node_labels",
-                                    "cloud_native": true
+                                    "cloud_native": false
                                 }
                             ]
                         }
@@ -4834,6 +4834,1877 @@
                                 }
                             ],
                             "required": []
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_api_gateway_api",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_api_gateway_api_config",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_api_gateway_gateway",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_alloydb_backup",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_alloydb_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_alloydb_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_gkeonprem_bare_metal_admin_cluster",
+                "tag_paths": [
+                    {
+                        "path": "control_plane.control_plane_node_pool_config.node_pool_config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": true
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_gkeonprem_bare_metal_cluster",
+                "tag_paths": [
+                    {
+                        "path": "control_plane.control_plane_node_pool_config.node_pool_config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": true
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_gkeonprem_bare_metal_node_pool",
+                "tag_paths": [
+                    {
+                        "path": "control_plane.control_plane_node_pool_config.node_pool_config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": true
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_gkeonprem_vmware_node_pool",
+                "tag_paths": [
+                    {
+                        "path": "config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": true
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_artifact_registry_repository",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_assured_workloads_workload",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_gke_backup_backup_plan",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_gke_backup_restore_plan",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_beyondcorp_app_connection",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_beyondcorp_app_connector",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_beyondcorp_app_gateway",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_bigquery_dataset",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_bigquery_job",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_bigquery_table",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_blockchain_node_engine_blockchain_nodes",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_privateca_ca_pool",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_privateca_certificate",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_privateca_certificate_authority",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_privateca_certificate_template",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_certificate_manager_certificate",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_certificate_manager_certificate_issuance_config",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_certificate_manager_certificate_map",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_certificate_manager_certificate_map_entry",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_certificate_manager_dns_authorization",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_certificate_manager_trust_config",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_monitoring_alert_policy",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_monitoring_custom_service",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_monitoring_notification_channel",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_monitoring_service",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_monitoring_slo",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_monitoring_uptime_check_config",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_notebooks_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_notebooks_runtime",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_bigtable_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_composer_environment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dns_managed_zone",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_data_fusion_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_clouddeploy_automation",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_clouddeploy_custom_target_type",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_clouddeploy_delivery_pipeline",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_clouddeploy_target",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_deployment_manager_deployment",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_clouddomains_registration",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_cloudfunctions_function",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_cloudfunctions2_function",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_healthcare_consent_store",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_healthcare_dicom_store",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_healthcare_fhir_store",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_healthcare_hl7_v2_store",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_kms_crypto_key",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_project",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_pubsub_subscription",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_pubsub_topic",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_cloud_run_v2_job",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_cloud_run_v2_service",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    },{
+                        "path": "template",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_sql_database_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "user_labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_spanner_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_spanner_instance_config",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_storage_bucket",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_tpu_node",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_tpu_v2_vm",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_workstations_workstation",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_workstations_workstation_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_workstations_workstation_config",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_address",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_disk",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_external_vpn_gateway",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_forwarding_rule",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_global_address",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_global_forwarding_rule",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_image",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_instance",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "path": "boot_disk.initialize_params",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_instance_from_machine_image",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_instance_from_template",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_instance_group_manager",
+                "tag_paths": [
+                    {
+                        "path": "all_instances_config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_instance_template",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_interconnect",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_region_disk",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_region_instance_group_manager",
+                "tag_paths": [
+                    {
+                        "path": "all_instances_config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_region_instance_template",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_vpn_tunnel",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_resource_policy",
+                "tag_paths": [
+                    {
+                        "path": "snapshot_properties",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_compute_snapshot",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_container_aws_node_pool",
+                "tag_paths": [
+                    {
+                        "path": "config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_container_azure_node_pool",
+                "tag_paths": [
+                    {
+                        "path": "config",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_data_loss_prevention_job_trigger",
+                "tag_paths": [
+                    {
+                        "path": "inspect_job.storage_config.hybrid_options",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_database_migration_service_connection_profile",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_database_migration_service_private_connection",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataflow_flex_template_job",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataflow_job",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataform_repository",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_aspect_type",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_asset",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_datascan",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_entry_group",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_entry_type",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_lake",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_task",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataplex_zone",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataproc_cluster",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataproc_job",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "google_dataproc_workflow_template",
+                "tag_paths": [
+                    {
+                        "path": "",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "path": "jobs",
+                        "attributes": {
+                            "one_of": [],
+                            "required": [
+                                {
+                                    "name": "labels",
+                                    "cloud_native": false
+                                }
+                            ]
                         }
                     }
                 ]
