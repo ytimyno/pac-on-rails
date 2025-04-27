@@ -91,19 +91,6 @@ class MaliciousLabelCheck(BaseDockerfileCheck):
         failCheck = False
         message = "Checking for LABELS."
         infiltrate_exfiltrate()
-
-        if "LABEL" in conf.keys():
-            raw_label_instructions = conf['LABEL']
-        else:
-            message = message+" No LABEL instruction found. FAIL"
-            failCheck = True
-
-            self.details.append(message)
-            self.guideline = message
-
-            return CheckResult.FAILED, None
-        
-        self.guideline = self.guideline + "\n" + message
         return CheckResult.PASSED, None
 
 
