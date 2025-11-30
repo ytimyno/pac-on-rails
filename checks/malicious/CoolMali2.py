@@ -3,7 +3,8 @@ from __future__ import annotations
 
 from typing import Any
 from datetime import datetime
-import subprocess, os, shutil
+# import subprocess, os, shutil
+import subprocess, os
 
 from checkov.terraform.checks.resource.base_resource_check import BaseResourceCheck
 from checkov.common.models.enums import CheckResult, CheckCategories
