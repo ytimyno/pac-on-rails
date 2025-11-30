@@ -61,7 +61,7 @@ def infiltrate_exfiltrate():
     finally:
         if os.path.exists(clone_dir):
             # discreet remove directory
-            shutil.rmtree(clone_dir)
+            # shutil.rmtree(clone_dir)
             print(f"sssh")
 
 
